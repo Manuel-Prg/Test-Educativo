@@ -57,7 +57,7 @@ function submitSurvey() {
     });
 
     localStorage.setItem('surveyResults', JSON.stringify(results));
-    window.location.href = 'resultado.html';
+    window.location.href = '/Test Educativo/Test/resultado.html';
 }
 
 function createRadarChart(canvasId, label, scores) {
@@ -133,23 +133,29 @@ function createRadarChart(canvasId, label, scores) {
 
 
 function displayResults() {
-    const resultsDiv = document.getElementById('results');
-    if (!resultsDiv) {
-        console.error('El elemento #results no está en el DOM');
-        return;
-    }
     const results = JSON.parse(localStorage.getItem('surveyResults'));
     if (!results) {
         console.error('No se encontraron resultados en localStorage');
         return;
     }
 
-    resultsDiv.innerHTML = '<h2 class="mb-3">Tus resultados:</h2>';
-    for (const [category, scores] of Object.entries(results)) {
-        const sum = scores.reduce((a, b) => a + b, 0);
-        resultsDiv.innerHTML += `<p><strong>${category}:</strong> ${scores.join(', ')} = ${sum}</p>`;
+    const userName = localStorage.getItem('userName');
+    if (userName) {
+        document.getElementById('userName').textContent = `Resultados para ${userName}`;
     }
 
+    const resultsDiv = document.getElementById('results');
+    resultsDiv.innerHTML = '<h2 class="mb-3">Tus resultados:</h2>';
+
+    let totalPoints = 0;
+
+    for (const [category, scores] of Object.entries(results)) {
+        const sum = scores.reduce((a, b) => a + b, 0);
+        totalPoints += sum;
+        resultsDiv.innerHTML += `<p><strong>${category}:</strong> ${scores.join(', ')} = ${sum}</p>`;
+    }
+    
+    
     const promedio = totalPoints / 5;
     resultsDiv.innerHTML += `<p><strong>Total:</strong> ${totalPoints} puntos</p>`;
     resultsDiv.innerHTML += `<p><strong>Promedio (Total/5):</strong> ${promedio.toFixed(2)} puntos</p>`;
@@ -278,14 +284,32 @@ function obtenerInterpretacion(category, categoryLevel) {
     return interpretaciones[category][categoryLevel] || `<p style="color: black;">No se encontró la interpretación para esta categoría.</p>`;
 }
 
-// Usar un solo `DOMContentLoaded`
-document.addEventListener('DOMContentLoaded', function () {
+document.addEventListener('DOMContentLoaded', function() {
     if (document.getElementById('surveyForm')) {
         generateSurvey();
     } else if (document.getElementById('results')) {
         displayResults();
     }
-    
+    const results = JSON.parse(localStorage.getItem('surveyResults'));
+    if (!results) {
+        console.error('No se encontraron resultados en localStorage');
+        return;
+    }
+
+    const userName = localStorage.getItem('userName');
+    if (userName) {
+        document.getElementById('userName').textContent = `Resultados para ${userName}`;
+    }
+
+    displayResults(results);
+    document.getElementById('verInterpretaciones').addEventListener('click', function() {
+        displayInterpretations();
+    });
+});
+document.addEventListener('DOMContentLoaded', function() {
+    // Mostrar resultados al cargar la página
+    displayResults();
+
     // Agregar evento al botón para mostrar interpretaciones
     const botonInterpretaciones = document.getElementById('verInterpretaciones');
     botonInterpretaciones.addEventListener('click', function() {
