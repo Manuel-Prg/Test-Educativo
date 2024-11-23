@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Educatico</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --gradient-start: #667eea;
+            --gradient-end: #4ba286;
+            --card-bg: rgba(255, 255, 255, 0.1);
+            --text-color: #ffffff;
+            --button-hover-bg: #ffffff;
+            --button-hover-color: #4a5568;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+            background: linear-gradient(135deg, var(--gradient-start) 0%, var(--gradient-end) 100%);
+            color: var(--text-color);
+            display: flex;
+            flex-direction: column;
+        }
+
+        header {
+            background: rgba(0, 0, 0, 0.2);
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+            display: flex;
+        }
+
+        nav ul li {
+            margin-left: 1rem;
+        }
+
+        nav a {
+            color: var(--text-color);
+            text-decoration: none;
+            transition: opacity 0.3s ease;
+        }
+
+        nav a:hover {
+            opacity: 0.8;
+        }
+
+        main {
+            flex-grow: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 2rem 0;
+        }
+
+        .card {
+            background: var(--card-bg);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 2rem;
+            max-width: 800px;
+            width: 90%;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        h1, h2 {
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 1rem;
+        }
+
+        .description {
+            font-size: 1.1rem;
+            text-align: center;
+            margin-bottom: 2rem;
+            opacity: 0.8;
+        }
+
+        p {
+            font-size: 1rem;
+            text-align: justify;
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+        }
+
+        .button-container {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .button {
+            background-color: transparent;
+            color: var(--text-color);
+            border: 2px solid var(--text-color);
+            padding: 0.75rem 1.5rem;
+            border-radius: 25px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .button:hover {
+            background-color: var(--button-hover-bg);
+            color: var(--button-hover-color);
+            transform: translateY(-3px);
+        }
+
+        .faq {
+            margin-top: 2rem;
+        }
+
+        .faq-item {
+            margin-bottom: 1rem;
+        }
+
+        .faq-question {
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .faq-answer {
+            display: none;
+            margin-top: 0.5rem;
+            padding-left: 1rem;
+        }
+
+        footer {
+            background: rgba(0, 0, 0, 0.2);
+            padding: 1rem 0;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        @media (max-width: 600px) {
+            .card {
+                padding: 1.5rem;
+            }
+
+            h1, h2 {
+                font-size: 2rem;
+            }
+
+            .description {
+                font-size: 1rem;
+            }
+
+            p {
+                font-size: 0.9rem;
+            }
+
+            .button {
+                width: 100%;
+                margin-bottom: 0.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="./index.html" class="logo">Test Educatico</a>
+            <ul>
+                <li><a href="./acerca-de.html">Acerca de</a></li>
+                <li><a href="./FAQ.html">FAQ</a></li>
+                <li><a href="./contacto.html">Contacto</a></li>
+                <li><a href="./blog.html">Blog</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <div class="card">
+            <h1>¡Test Educatico!</h1>
+            <p class="description">Descubre tus fortalezas y áreas de mejora en el ámbito educativo</p>
+            <p>
+                Este test tiene como objetivo evaluar diferentes aspectos del aprendizaje, la conciencia, el temperamento y la 
+                resiliencia académica de cada participante. A través de este test, podrás obtener una visión más clara de tus fortalezas y 
+                áreas de mejora en el ámbito educativo.
+            </p>
+            <p>
+                Realizar este test es importante, ya que te permitirá identificar oportunidades 
+                para mejorar tus habilidades y adoptar estrategias que optimicen tu proceso de aprendizaje. ¡Anímate a descubrir más sobre ti 
+                mismo y a potenciar tu desarrollo académico y personal!
+            </p>
+            <div class="button-container">
+                <a href="./index.html" class="button">¡Realizar el test!</a>
+                <a href="./Datos/Grupal.html" class="button">¡Captura los datos del grupo!</a>
+            </div>
+
+            <div class="faq" id="faq">
+                <h2>Preguntas Frecuentes</h2>
+                <div class="faq-item">
+                    <div class="faq-question">¿Cuánto tiempo toma completar el test?</div>
+                    <div class="faq-answer">El test toma aproximadamente 15-20 minutos para completarse.</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">¿Cómo se interpretan los resultados?</div>
+                    <div class="faq-answer">Los resultados se presentan en forma de gráficos y explicaciones detalladas para cada área evaluada.</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">¿Es confidencial la información proporcionada?</div>
+                    <div class="faq-answer">Sí, toda la información proporcionada es confidencial y se utiliza únicamente con fines educativos.</div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer id="contact">
+        <div>
+            <p>Contacto: info@testeducatico.com | Teléfono: (123) 456-7890</p>
+            <p>&copy; 2024 Test Educatico. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', (event) => {
+            const buttons = document.querySelectorAll('.button');
+            buttons.forEach(button => {
+                button.addEventListener('mouseenter', () => {
+                    button.style.transform = 'translateY(-3px)';
+                });
+                button.addEventListener('mouseleave', () => {
+                    button.style.transform = 'translateY(0)';
+                });
+            });
+
+            const faqQuestions = document.querySelectorAll('.faq-question');
+            faqQuestions.forEach(question => {
+                question.addEventListener('click', () => {
+                    const answer = question.nextElementSibling;
+                    answer.style.display = answer.style.display === 'block' ? 'none' : 'block';
+                });
+            });
+        });
+    </script>
+</body>
+</html>

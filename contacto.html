@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contacto - Test Educatico</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --gradient-start: #667eea;
+            --gradient-end: #4ba286;
+            --card-bg: rgba(255, 255, 255, 0.1);
+            --text-color: #ffffff;
+            --input-bg: rgba(255, 255, 255, 0.2);
+            --input-text: #ffffff;
+            --input-placeholder: rgba(255, 255, 255, 0.6);
+            --button-bg: #ffd700;
+            --button-text: #333333;
+            --button-hover-bg: #ffed4a;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+            background: linear-gradient(135deg, var(--gradient-start) 0%, var(--gradient-end) 100%);
+            color: var(--text-color);
+            display: flex;
+            flex-direction: column;
+        }
+
+        header {
+            background: rgba(0, 0, 0, 0.2);
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+        }
+
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+            display: flex;
+        }
+
+        nav ul li {
+            margin-left: 1rem;
+        }
+
+        nav a {
+            color: var(--text-color);
+            text-decoration: none;
+            transition: opacity 0.3s ease;
+        }
+
+        nav a:hover {
+            opacity: 0.8;
+        }
+
+        main {
+            flex-grow: 1;
+            padding: 2rem 0;
+            max-width: 800px;
+            margin: 0 auto;
+            width: 100%;
+        }
+
+        .contenido {
+            background: var(--card-bg);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 2rem;
+            color: #ffffff;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+        }
+
+        h2 {
+            color: #ffffff;
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+        }
+
+        h3 {
+            color: #ffffff;
+            font-size: 1.4rem;
+            margin-bottom: 0.5rem;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+        }
+
+        p {
+            font-size: 1rem;
+            line-height: 1.6;
+            margin-bottom: 1rem;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-row {
+            display: flex;
+            flex-wrap: wrap;
+            margin: -0.5rem;
+        }
+
+        .form-col {
+            flex: 1 1 calc(50% - 1rem);
+            margin: 0.5rem;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: bold;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+        }
+
+        input, textarea, select {
+            width: 100%;
+            padding: 0.75rem;
+            border-radius: 8px;
+            border: none;
+            background-color: var(--input-bg);
+            color: var(--input-text);
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        input:focus, textarea:focus, select:focus {
+            outline: none;
+            box-shadow: 0 0 0 2px rgba(255,255,255,0.5);
+        }
+
+        input::placeholder, textarea::placeholder {
+            color: var(--input-placeholder);
+        }
+
+        button {
+            margin-top: 1.5rem;
+            padding: 0.75rem 1.5rem;
+            background-color: var(--button-bg);
+            color: var(--button-text);
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 1rem;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        button:hover {
+            background-color: var(--button-hover-bg);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+        }
+
+        .form-section {
+            margin-bottom: 2rem;
+        }
+
+        footer {
+            background: rgba(0, 0, 0, 0.2);
+            padding: 1rem 0;
+            text-align: center;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        .fade-in {
+            animation: fadeIn 0.5s ease-in-out;
+        }
+        /* Update the select and option styles in the existing CSS section */
+        select {
+            width: 100%;
+            padding: 0.75rem;
+            border-radius: 8px;
+            border: none;
+            background-color: var(--input-bg);
+            color: var(--input-text);
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            appearance: none;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 0.75rem center;
+            background-size: 1em;
+            padding-right: 2.5rem;
+        }
+
+        select:focus {
+            outline: none;
+            box-shadow: 0 0 0 2px rgba(255,255,255,0.5);
+        }
+
+        select option {
+            background-color: #2d3748;
+            color: white;
+            padding: 0.75rem;
+        }
+
+        select option:checked {
+            background-color: #4a5568;
+        }
+
+        select::-ms-expand {
+            display: none;
+        }
+
+        /* Add this to ensure the dropdown is visible on all browsers */
+        select:-moz-focusring {
+            color: transparent;
+            text-shadow: 0 0 0 var(--input-text);
+        }
+
+        /* Ensure placeholder option has proper styling */
+        select option[value=""] {
+            color: var(--input-placeholder);
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @media (max-width: 600px) {
+            nav {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            nav ul {
+                margin-top: 1rem;
+            }
+
+            .contenido {
+                padding: 1.5rem;
+            }
+
+            h1 {
+                font-size: 2rem;
+            }
+
+            h2 {
+                font-size: 1.5rem;
+            }
+
+            h3 {
+                font-size: 1.2rem;
+            }
+
+            .form-col {
+                flex: 1 1 100%;
+            }
+
+            input, textarea, select, button {
+                font-size: 16px; /* Prevents zoom on mobile */
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="./blog.html" class="logo">Test Educatico</a>
+            <ul>
+                <li><a href="./acerca-de.html">Acerca de</a></li>
+                <li><a href="./FAQ.html">FAQ</a></li>
+                <li><a href="./contacto.html">Contacto</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <h1>Contacto</h1>
+        <div class="contenido">
+            <div class="form-section">
+                <h2>Formulario de Contacto</h2>
+                <p>Si tienes alguna pregunta o comentario, no dudes en contactarnos:</p>
+                <form id="formulario-general">
+                    <div class="form-group">
+                        <div class="form-row">
+                            <div class="form-col">
+                                <label for="nombre">Nombre</label>
+                                <input type="text" id="nombre" name="nombre" required placeholder="Tu nombre completo">
+                            </div>
+                            <div class="form-col">
+                                <label for="email">Email</label>
+                                <input type="email" id="email" name="email" required placeholder="tu@email.com">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="es-estudiante">¿Eres estudiante universitario?</label>
+                        <select id="es-estudiante" name="es-estudiante" required>
+                            <option value="">Selecciona una opción</option>
+                            <option value="si">Sí</option>
+                            <option value="no">No</option>
+                        </select>
+                    </div>
+
+                    <div id="campos-generales">
+                        <div class="form-group">
+                            <label for="mensaje">Mensaje</label>
+                            <textarea id="mensaje" name="mensaje" rows="4" required placeholder="Escribe tu mensaje aquí"></textarea>
+                        </div>
+                    </div>
+
+                    <div id="campos-estudiante" class="hidden">
+                        <div class="form-group">
+                            <h3>Información Académica</h3>
+                            <div class="form-row">
+                                <div class="form-col">
+                                    <label for="universidad">Universidad</label>
+                                    <input type="text" id="universidad" name="universidad" placeholder="Nombre de tu universidad">
+                                </div>
+                                <div class="form-col">
+                                    <label for="carrera">Carrera</label>
+                                    <input type="text" id="carrera" name="carrera" placeholder="Tu carrera universitaria">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="form-row">
+                                <div class="form-col">
+                                    <label for="email-institucional">Email institucional</label>
+                                    <input type="email" id="email-institucional" name="email-institucional" placeholder="tu@universidad.edu">
+                                </div>
+                                <div class="form-col">
+                                    <label for="semestre">Semestre actual</label>
+                                    <select id="semestre" name="semestre">
+                                        <option value="">Selecciona tu semestre</option>
+                                        <option value="1">1er semestre</option>
+                                        <option value="2">2do semestre</option>
+                                        <option value="3">3er semestre</option>
+                                        <option value="4">4to semestre</option>
+                                        <option value="5">5to semestre</option>
+                                        <option value="6">6to semestre</option>
+                                        <option value="7">7mo semestre</option>
+                                        <option value="8">8vo semestre</option>
+                                        <option value="9">9no semestre</option>
+                                        <option value="10">10mo semestre o superior</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="mensaje-estudiante">Mensaje o consulta</label>
+                            <textarea id="mensaje-estudiante" name="mensaje-estudiante" rows="4" placeholder="Escribe tu mensaje o consulta aquí"></textarea>
+                        </div>
+                    </div>
+
+                    <button type="submit">Enviar mensaje</button>
+                </form>
+            </div>
+        </div>
+    </main>
+    <footer>
+        <div>
+            <p>Contacto: info@testeducatico.com | Teléfono: (123) 456-7890</p>
+            <p>&copy; 2024 Test Educatico. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+    <script>
+        document.addEventListener('DOMContentLoaded', (event) => {
+            const links = document.querySelectorAll('nav a');
+            links.forEach(link => {
+                link.addEventListener('mouseenter', () => {
+                    link.style.opacity = '0.8';
+                });
+                link.addEventListener('mouseleave', () => {
+                    link.style.opacity = '1';
+                });
+            });
+
+            const esEstudianteSelect = document.getElementById('es-estudiante');
+            const camposGenerales = document.getElementById('campos-generales');
+            const camposEstudiante = document.getElementById('campos-estudiante');
+
+            esEstudianteSelect.addEventListener('change', function() {
+                if (this.value === 'si') {
+                    camposGenerales.classList.add('hidden');
+                    camposEstudiante.classList.remove('hidden');
+                    camposEstudiante.classList.add('fade-in');
+                } else {
+                    camposGenerales.classList.remove('hidden');
+                    camposEstudiante.classList.add('hidden');
+                    camposGenerales.classList.add('fade-in');
+                }
+            });
+
+            document.getElementById('formulario-general').addEventListener('submit', function(e) {
+                e.preventDefault();
+                // Aquí puedes agregar la lógica para enviar el formulario
+                alert('Formulario enviado con éxito');
+            });
+        });
+    </script>
+</body>
+</html>

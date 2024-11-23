@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog de Psicología Educativa</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --gradient-start: #667eea;
+            --gradient-end: #4ba286;
+            --card-bg: rgba(255, 255, 255, 0.1);
+            --text-color: #ffffff;
+            --button-hover-bg: #ffffff;
+            --button-hover-color: #4a5568;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+            background: linear-gradient(135deg, var(--gradient-start) 0%, var(--gradient-end) 100%);
+            color: var(--text-color);
+            display: flex;
+            flex-direction: column;
+        }
+
+        header {
+            background: rgba(0, 0, 0, 0.2);
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+        }
+
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+            display: flex;
+        }
+
+        nav ul li {
+            margin-left: 1rem;
+        }
+
+        nav a {
+            color: var(--text-color);
+            text-decoration: none;
+            transition: opacity 0.3s ease;
+        }
+
+        nav a:hover {
+            opacity: 0.8;
+        }
+
+        main {
+            flex-grow: 1;
+            padding: 2rem 0;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .articulo {
+            background: var(--card-bg);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        h2 {
+            color: #ffffff;
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+        }
+
+        p, ul {
+            font-size: 1rem;
+            line-height: 1.6;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 20px auto;
+            border-radius: 10px;
+        }
+
+        .btn-test {
+            display: block;
+            width: 80%;
+            max-width: 300px;
+            margin: 2rem auto;
+            padding: 1rem;
+            background-color: #ffd700;
+            color: #333;
+            text-align: center;
+            text-decoration: none;
+            font-size: 1.2rem;
+            font-weight: bold;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .btn-test:hover {
+            background-color: #ffed4a;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+        }
+
+        footer {
+            background: rgba(0, 0, 0, 0.2);
+            padding: 1rem 0;
+            text-align: center;
+        }
+
+        @media (max-width: 600px) {
+            nav {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            nav ul {
+                margin-top: 1rem;
+            }
+
+            .articulo {
+                padding: 1.5rem;
+            }
+
+            h1 {
+                font-size: 2rem;
+            }
+
+            h2 {
+                font-size: 1.5rem;
+            }
+
+            .btn-test {
+                width: 90%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="./index.html" class="logo">Test Educatico</a>
+            <ul>
+                <li><a href="./acerca-de.html">Acerca de</a></li>
+                <li><a href="./FAQ.html">FAQ</a></li>
+                <li><a href="./contacto.html">Contacto</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <h1>Explorando la Psicología Educativa: Conceptos Clave para el Éxito Académico</h1>
+        
+        <div class="articulo">
+            <h2>Estilos de Aprendizaje</h2>
+            <p>Los estilos de aprendizaje se refieren a las diferentes formas en que los individuos prefieren absorber, procesar y retener la información. Los estilos de aprendizaje comunes incluyen:</p>
+            <ul>
+                <li>Visual (espacial): Prefieres usar imágenes, dibujos y comprensión espacial</li>
+                <li>Auditivo (musical): Prefieres usar sonidos y música</li>
+                <li>Verbal (lingüístico): Prefieres usar palabras, tanto en el habla como en la escritura</li>
+                <li>Físico (kinestésico): Prefieres usar tu cuerpo, manos y sentido del tacto</li>
+            </ul>
+            <p>Entender tu estilo de aprendizaje puede ayudarte a adaptar tus métodos de estudio para un mejor rendimiento académico.</p>
+        </div>
+
+        <div class="articulo">
+            <h2>Resiliencia Académica</h2>
+            <p>La resiliencia académica es la capacidad de superar desafíos y contratiempos en entornos educativos. Implica:</p>
+            <ul>
+                <li>Perseverancia frente a las dificultades académicas</li>
+                <li>Adaptación a las cambiantes demandas académicas</li>
+                <li>Recuperación después de malas calificaciones o retroalimentación negativa</li>
+                <li>Mantener la motivación y el enfoque en los objetivos a largo plazo</li>
+            </ul>
+            <p>Desarrollar la resiliencia académica es crucial para el éxito a largo plazo en la educación superior y más allá.</p>
+        </div>
+
+        <div class="articulo">
+            <h2>Niveles de Conciencia</h2>
+            <p>En psicología educativa, los niveles de conciencia se refieren al grado de consciencia y compromiso cognitivo que un estudiante tiene con su proceso de aprendizaje. Esto puede incluir:</p>
+            <ul>
+                <li>Metacognición: Conciencia de los propios procesos de pensamiento</li>
+                <li>Autorregulación: La capacidad de monitorear y controlar el propio aprendizaje</li>
+                <li>Atención plena: Estar presente y completamente comprometido con la experiencia de aprendizaje</li>
+                <li>Pensamiento crítico: Analizar información y formar juicios razonados</li>
+            </ul>
+            <p>Niveles más altos de conciencia en el aprendizaje pueden conducir a una mejor comprensión y retención de la información.</p>
+        </div>
+
+        <div class="articulo">
+            <h2>Tipos de Temperamento</h2>
+            <p>El temperamento se refiere a rasgos de personalidad innatos que influyen en cómo los individuos reaccionan a su entorno. En entornos educativos, los tipos de temperamento comunes incluyen:</p>
+            <ul>
+                <li>Fácil: Adaptable, estado de ánimo positivo, hábitos regulares</li>
+                <li>Difícil: Reacciones intensas, hábitos irregulares, lento para adaptarse</li>
+                <li>Lento para animarse: Baja actividad, algo negativo, lento para adaptarse</li>
+                <li>Activo: Alta energía, muy receptivo, generalmente positivo</li>
+            </ul>
+            <p>Comprender el temperamento puede ayudar a los educadores y estudiantes a crear entornos y estrategias de aprendizaje más efectivos.</p>
+        </div>
+
+        <img src="./imagenes/logo2.png" alt="Conceptos de Psicología Educativa">
+        <p style="text-align: center; color: #ffffff;">Ilustración de conceptos clave de psicología educativa</p>
+
+        <a href="./Mensaje_inicial.html" class="btn-test">¡Realiza el Test Ahora!</a>
+    </main>
+
+    <footer>
+        <div>
+            <p>Contacto: direccion.dpe@ujat.mx | Teléfono: 3581500 ext. 6094</p>
+            <p>&copy; 2024  PSICOLAB. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', (event) => {
+            const links = document.querySelectorAll('nav a');
+            links.forEach(link => {
+                link.addEventListener('mouseenter', () => {
+                    link.style.opacity = '0.8';
+                });
+                link.addEventListener('mouseleave', () => {
+                    link.style.opacity = '1';
+                });
+            });
+        });
+    </script>
+</body>
+</html>
