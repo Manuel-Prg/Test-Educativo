@@ -57,7 +57,7 @@ function submitSurvey() {
     });
 
     localStorage.setItem('surveyResults', JSON.stringify(results));
-    window.location.href = 'resultado.html';
+    window.location.href = '/resultado.html';
 }
 
 function createRadarChart(canvasId, label, scores) {
