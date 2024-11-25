@@ -93,7 +93,7 @@ function createRadarChart(canvasId, label, scores) {
         borderColor = 'rgba(255, 206, 86, 1)';        // Amarillo fuerte
     }
 
-    // Crear el gráfico con colores personalizados
+    // Crear el gráfico con colores personalizados y texto en blanco
     new Chart(ctx, {
         type: 'radar',
         data: {
@@ -115,22 +115,37 @@ function createRadarChart(canvasId, label, scores) {
                     ticks: {
                         stepSize: 1,
                         font: { size: 15 },
-                        backdropColor: 'rgba(255, 255, 255, 0)' // Fondo de los valores en transparente
+                        backdropColor: 'rgba(255, 255, 255, 0)',
+                        color: '#ffffff' // Color blanco para los números
                     },
-                    pointLabels: { font: { size: 15 } }
+                    pointLabels: { 
+                        font: { size: 15 },
+                        color: '#ffffff' // Color blanco para las etiquetas
+                    },
+                    grid: {
+                        color: 'rgba(255, 255, 255, 0.2)' // Líneas de la cuadrícula en blanco semi-transparente
+                    },
+                    angleLines: {
+                        color: 'rgba(255, 255, 255, 0.2)' // Líneas angulares en blanco semi-transparente
+                    }
                 }
             },
             plugins: {
                 title: {
                     display: true,
                     text: label,
-                    font: { size: 20 }
+                    font: { size: 20 },
+                    color: '#ffffff' // Color blanco para el título
+                },
+                legend: {
+                    labels: {
+                        color: '#ffffff' // Color blanco para la leyenda
+                    }
                 }
             }
         }
     });
 }
-
 
 function displayResults() {
     const results = JSON.parse(localStorage.getItem('surveyResults'));
